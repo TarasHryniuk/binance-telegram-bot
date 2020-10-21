@@ -1,0 +1,31 @@
+2020-10-21 22:49:51,737 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 22:50:03,150 INFO  telegram.Bot - Receive new Update. updateID: 292999196
+2020-10-21 23:05:57,149 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:06:12,168 INFO  telegram.Bot - Receive new Update. updateID: 292999197
+2020-10-21 23:34:35,586 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:34:35,858 INFO  telegram.Bot - Receive new Update. updateID: 292999198
+2020-10-21 23:34:37,130 ERROR telegram.Bot - java.io.IOException: Stream closed
+2020-10-21 23:34:48,010 INFO  telegram.Bot - Receive new Update. updateID: 292999200
+2020-10-21 23:34:48,244 ERROR telegram.Bot - java.io.IOException: Stream closed
+2020-10-21 23:34:52,396 INFO  telegram.Bot - Receive new Update. updateID: 292999201
+2020-10-21 23:34:52,608 ERROR telegram.Bot - java.io.IOException: Stream closed
+2020-10-21 23:35:24,118 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:35:52,770 INFO  telegram.Bot - Receive new Update. updateID: 292999202
+2020-10-21 23:35:53,005 ERROR telegram.Bot - com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "USD" (class bot.crypto.protocol.Response), not marked as ignorable (3 known properties: "eur", "uah", "usd"])
+ at [Source: (String)"{"USD":0.2519,"EUR":0.2122,"UAH":7.06}"; line: 1, column: 14] (through reference chain: bot.crypto.protocol.Response["USD"])
+2020-10-21 23:36:19,237 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:36:40,152 INFO  telegram.Bot - Receive new Update. updateID: 292999203
+2020-10-21 23:36:40,423 ERROR telegram.Bot - com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "USD" (class bot.crypto.protocol.Response), not marked as ignorable (3 known properties: "eur", "uah", "usd"])
+ at [Source: (String)"{"USD":0.252,"EUR":0.2122,"UAH":7.06}"; line: 1, column: 13] (through reference chain: bot.crypto.protocol.Response["USD"])
+2020-10-21 23:42:12,326 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:42:20,981 INFO  telegram.Bot - Receive new Update. updateID: 292999204
+2020-10-21 23:42:22,336 ERROR telegram.Bot - com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "USD" (class bot.crypto.protocol.Response), not marked as ignorable (3 known properties: "eur", "uah", "usd"])
+ at [Source: (String)"{"USD":0.2521,"EUR":0.2122,"UAH":7.052}"; line: 1, column: 14] (through reference chain: bot.crypto.protocol.Response["USD"])
+2020-10-21 23:44:46,617 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:44:55,282 INFO  telegram.Bot - Receive new Update. updateID: 292999205
+2020-10-21 23:44:56,526 ERROR telegram.Bot - com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "USD" (class bot.crypto.protocol.Response), not marked as ignorable (3 known properties: "eur", "uah", "usd"])
+ at [Source: (String)"{"USD":0.2518,"EUR":0.212,"UAH":7.053}"; line: 1, column: 14] (through reference chain: bot.crypto.protocol.Response["USD"])
+2020-10-21 23:46:51,230 INFO  telegram.Bot - TelegramAPI started. Look for messages
+2020-10-21 23:46:55,945 INFO  telegram.Bot - Receive new Update. updateID: 292999206
+2020-10-21 23:46:56,181 ERROR telegram.Bot - com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "USD" (class bot.crypto.protocol.Response), not marked as ignorable (4 known properties: "btc", "eur", "uah", "usd"])
+ at [Source: (String)"{"USD":0.2521,"EUR":0.212,"UAH":7.053}"; line: 1, column: 14] (through reference chain: bot.crypto.protocol.Response["USD"])
