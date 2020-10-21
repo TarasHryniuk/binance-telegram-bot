@@ -1,5 +1,6 @@
 package bot.crypto.httpclient;
 
+import bot.crypto.App;
 import bot.crypto.protocol.Response;
 import bot.crypto.telegram.Bot;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +25,6 @@ public class HttpsClient {
 
     private static final Logger LOGGER = Logger.getLogger(Bot.class);
 
-    static Properties appProps;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -41,11 +41,8 @@ public class HttpsClient {
 
             HttpGet request = new HttpGet(sb.toString());
 
-            HttpsClient httpsClient = new HttpsClient();
-            httpsClient.initializeProperties();
-
             // add request headers
-            request.addHeader(HttpHeaders.AUTHORIZATION, appProps.get("api.key.cryptocompare").toString());
+            request.addHeader(HttpHeaders.AUTHORIZATION, App.getAppProps().get("api.key.cryptocompare").toString());
 
             CloseableHttpResponse response = httpClient.execute(request);
 
@@ -76,16 +73,5 @@ public class HttpsClient {
 
         return resp;
 
-    }
-
-    private void initializeProperties() {
-        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        String appConfigPath = rootPath + "app.properties";
-        appProps = new Properties();
-        try {
-            appProps.load(new FileInputStream(appConfigPath));
-        } catch (IOException e) {
-            LOGGER.error(e);
-        }
     }
 }

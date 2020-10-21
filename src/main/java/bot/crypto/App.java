@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class App {
     private static final Logger LOGGER = Logger.getLogger(App.class);
-    static Properties appProps;
+    private static Properties appProps;
 
     public static void main(String[] args) {
         App app = new App();
@@ -34,5 +34,9 @@ public class App {
         } catch (IOException e) {
             LOGGER.error(e);
         }
+    }
+
+    public static Properties getAppProps() {
+        return appProps;
     }
 }

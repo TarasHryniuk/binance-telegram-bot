@@ -61,15 +61,15 @@ public class Bot extends TelegramLongPollingBot {
             StringBuilder sb = new StringBuilder();
             sb.append("-----------------------------------------");
             sb.append('\n');
-            sb.append("          You entered         '" + inputText + "'");
+            sb.append("          You entered         ").append(inputText).append('\'');
             sb.append('\n');
-            sb.append("USD: " + response.getUsd());
+            sb.append("USD: ").append(response.getUsd()).append(" $");
             sb.append('\n');
-            sb.append("EUR: " + response.getEur());
+            sb.append("EUR: ").append(response.getEur()).append(" €");
             sb.append('\n');
-            sb.append("UAH: " + response.getUah());
+            sb.append("UAH: ").append(response.getUah()).append(" ₴");
             sb.append('\n');
-            sb.append("BTC: " + response.getBtc());
+            sb.append("BTC: ").append(response.getBtc()).append(" ฿");
             sb.append('\n');
             sb.append("-----------------------------------------");
 
