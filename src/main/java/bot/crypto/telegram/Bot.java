@@ -43,7 +43,7 @@ public class Bot extends TelegramLongPollingBot {
         Long chatId = update.getMessage().getChatId();
         String inputText = update.getMessage().getText().toUpperCase();
 
-        if (inputText.equalsIgnoreCase("/start")) {
+        if (inputText.equalsIgnoreCase("/start") || inputText.equalsIgnoreCase("/help")) {
             StringBuilder sb = new StringBuilder();
             sb.append("Welcome to Crypto Currencies bot! You can enter name of coin and you will receive currency");
             SendMessage message = new SendMessage();
@@ -61,7 +61,7 @@ public class Bot extends TelegramLongPollingBot {
             StringBuilder sb = new StringBuilder();
             sb.append("-----------------------------------------");
             sb.append('\n');
-            sb.append("          You entered         ").append(inputText).append('\'');
+            sb.append("          You entered         '").append(inputText).append('\'');
             sb.append('\n');
             sb.append("USD: ").append(response.getUsd()).append(" $");
             sb.append('\n');
