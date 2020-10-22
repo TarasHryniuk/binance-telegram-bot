@@ -19,7 +19,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private static final Logger LOGGER = Logger.getLogger(Bot.class);
 
-    final int RECONNECT_PAUSE = 10000;
+    final int RECONNECT_PAUSE = 100;
 
     @Setter
     @Getter
@@ -35,8 +35,12 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        LOGGER.info("Receive new Update. updateID: " + update.getUpdateId() + " " + update.getMessage().getFrom().getUserName()
-                + " " + update.getMessage().getFrom().getId() + " " + update.getMessage().getLocation());
+        StringBuilder sb = new StringBuilder();
+        sb.append("Receive new Update. updateID: ").append(update.getUpdateId()).append(" ,userName: ")
+                .append(update.getMessage().getFrom().getUserName()).append(" ,userId: ").append(update.getMessage().getFrom().getId())
+                .append(" ,location: ").append(update.getMessage().getLocation());
+
+        LOGGER.info(sb.toString());
 
         Long chatId = update.getMessage().getChatId();
         String inputText = update.getMessage().getText().toUpperCase();
