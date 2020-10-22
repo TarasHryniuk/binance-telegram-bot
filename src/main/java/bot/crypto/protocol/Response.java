@@ -1,11 +1,7 @@
 package bot.crypto.protocol;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
@@ -13,7 +9,7 @@ import java.math.BigDecimal;
  * @author Taras Hryniuk, created on  21.10.2020
  * email : hryniuk.t@gmail.com
  */
-@ToString
+@Data
 public class Response {
 
     public Response() {
@@ -27,22 +23,14 @@ public class Response {
     }
 
     @JsonProperty("USD")
-    @Setter
-    @Getter
     private BigDecimal usd;
 
     @JsonProperty("EUR")
-    @Setter
-    @Getter
     private BigDecimal eur;
 
     @JsonProperty("UAH")
-    @Setter
-    @Getter
     private BigDecimal uah;
 
     @JsonProperty("BTC")
-    @Setter
-    @Getter
     private BigDecimal btc;
 }
