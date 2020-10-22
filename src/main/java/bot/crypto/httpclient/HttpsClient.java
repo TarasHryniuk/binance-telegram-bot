@@ -28,7 +28,7 @@ public class HttpsClient {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public Response getResponse(String curr) {
+    public Response getResponse(String curr) throws IOException {
 
         Response resp = null;
 
@@ -63,6 +63,7 @@ public class HttpsClient {
             }
         } catch (Exception e) {
             LOGGER.error(e);
+            throw e;
         } finally {
             try {
                 httpClient.close();

@@ -1,7 +1,6 @@
 package bot.crypto.telegram;
 
-import bot.crypto.httpclient.HttpsClient;
-import bot.crypto.protocol.Response;
+import bot.crypto.services.CreateMessageService;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
@@ -22,8 +21,6 @@ public class Bot extends TelegramLongPollingBot {
 
     final int RECONNECT_PAUSE = 10000;
 
-    private HttpsClient httpsClient;
-
     @Setter
     @Getter
     String userName;
@@ -42,45 +39,15 @@ public class Bot extends TelegramLongPollingBot {
 
         Long chatId = update.getMessage().getChatId();
         String inputText = update.getMessage().getText().toUpperCase();
+        CreateMessageService createMessageService = new CreateMessageService();
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(createMessageService.createMessage(inputText));
 
-        if (inputText.equalsIgnoreCase("/start") || inputText.equalsIgnoreCase("/help")) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Welcome to Crypto Currencies bot! You can enter name of coin and you will receive currency");
-            SendMessage message = new SendMessage();
-            message.setChatId(chatId);
-            message.setText(sb.toString());
-            try {
-                execute(message);
-            } catch (TelegramApiException e) {
-                LOGGER.error(e);
-            }
-        } else {
-            httpsClient = new HttpsClient();
-            Response response = httpsClient.getResponse(inputText);
-
-            StringBuilder sb = new StringBuilder();
-            sb.append("-----------------------------------------");
-            sb.append('\n');
-            sb.append("          You entered         '").append(inputText).append('\'');
-            sb.append('\n');
-            sb.append("USD: ").append(response.getUsd()).append(" $");
-            sb.append('\n');
-            sb.append("EUR: ").append(response.getEur()).append(" €");
-            sb.append('\n');
-            sb.append("UAH: ").append(response.getUah()).append(" ₴");
-            sb.append('\n');
-            sb.append("BTC: ").append(response.getBtc()).append(" ฿");
-            sb.append('\n');
-            sb.append("-----------------------------------------");
-
-            SendMessage message = new SendMessage();
-            message.setChatId(chatId);
-            message.setText(sb.toString());
-            try {
-                execute(message);
-            } catch (TelegramApiException e) {
-                LOGGER.error(e);
-            }
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            LOGGER.error(e);
         }
     }
 
