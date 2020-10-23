@@ -24,18 +24,18 @@ public class Response {
         this.btc = btc;
     }
 
-    @JsonProperty(value ="USD", required = false)
+    @JsonProperty(value ="USD")
     private BigDecimal usd;
 
-    @JsonProperty(value ="EUR", required = false)
+    @JsonProperty(value ="EUR")
     private BigDecimal eur;
 
-    @JsonProperty(value ="UAH", required = false)
+    @JsonProperty(value ="UAH")
     private BigDecimal uah;
 
-    @JsonProperty(value ="BTC", required = false)
+    @JsonProperty(value ="BTC")
     private BigDecimal btc;
 
-    @JsonProperty(value = "Message", required = false)
+    @JsonProperty(value = "Message")
     private String message;
 }
