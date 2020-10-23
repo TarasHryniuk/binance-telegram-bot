@@ -35,15 +35,16 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Receive new Update. updateID: ").append(update.getUpdateId()).append(" ,userName: ")
-                .append(update.getMessage().getFrom().getUserName()).append(" ,userId: ").append(update.getMessage().getFrom().getId())
-                .append(" ,location: ").append(update.getMessage().getLocation());
-
-        LOGGER.info(sb.toString());
 
         Long chatId = update.getMessage().getChatId();
         String inputText = update.getMessage().getText().toUpperCase();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Receive new Update. updateID: ").append(update.getUpdateId()).append(" ,userName: ")
+                .append(update.getMessage().getFrom().getUserName()).append(" ,userId: ").append(update.getMessage().getFrom().getId())
+                .append(" ,location: ").append(update.getMessage().getLocation() + ", coin: " + inputText);
+        LOGGER.info(sb.toString());
+
         CreateMessageService createMessageService = new CreateMessageService();
 
         if (inputText.contains("/CRYPTO")) inputText = inputText.substring(8);

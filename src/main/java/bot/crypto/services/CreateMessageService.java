@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Taras Hryniuk, created on  22.10.2020
@@ -18,6 +20,7 @@ public class CreateMessageService {
     private static final String WELCOME = "Welcome to Crypto Currencies bot! You can enter name of coin and you will " +
             "receive currency.\nIf you have any ideas to create this bot better, please, write letter to goover.investments@gmail.com";
     private static final String HELP = "/start - welcome\n/crypto xxx - where xxx is name of coin";
+    private static final String ERROR = "Error command '%s'";
 
     private StatisticDao statisticDao;
     private static final Logger LOGGER = Logger.getLogger(CreateMessageService.class);
@@ -27,6 +30,8 @@ public class CreateMessageService {
 
         statisticDao = new StatisticDao();
         statisticDao.insertUser(command, userId, messageId, userName);
+
+        if(!isValid(command)) return errorCommand(command);
 
         if(command.equalsIgnoreCase("/start")) return startCommand();
         if(command.equalsIgnoreCase("/help")) return helpCommand();
@@ -41,6 +46,10 @@ public class CreateMessageService {
 
     private String helpCommand(){
         return HELP;
+    }
+
+    private String errorCommand(String message){
+        return String.format(ERROR, message);
     }
 
     private String getCoinCurrency(String command){
@@ -66,4 +75,15 @@ public class CreateMessageService {
             return COIN_NOT_FOUND;
         }
     }
+
+    public static boolean isValid(String message){
+        if(message.length() > 15) return false;
+        if(message.contains("\n")) return false;
+
+        Pattern pattern = Pattern.compile("[а-яА-ЯїЇєЄъЪ~#@*+%{}<>\\[\\]|\"\\_^]");
+        Matcher matcher = pattern.matcher(message);
+
+        return !matcher.find();
+    }
+
 }
