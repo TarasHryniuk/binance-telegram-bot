@@ -60,6 +60,9 @@ public class CreateMessageService {
 
             StringBuilder sb = new StringBuilder();
 
+            String message = response.getMessage();
+            if(null != message && !message.isEmpty()) return message;
+
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
             sb.append('\n').append("'")
@@ -71,12 +74,13 @@ public class CreateMessageService {
             return sb.toString();
 
         } catch (Exception e) {
+            e.printStackTrace();
             LOGGER.error(e);
             return COIN_NOT_FOUND;
         }
     }
 
-    public static boolean isValid(String message){
+    public boolean isValid(String message){
         if(message.length() > 15) return false;
         if(message.contains("\n")) return false;
 

@@ -1,5 +1,6 @@
 package bot.crypto.protocol;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  * email : hryniuk.t@gmail.com
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
     public Response() {
@@ -22,15 +24,18 @@ public class Response {
         this.btc = btc;
     }
 
-    @JsonProperty("USD")
+    @JsonProperty(value ="USD", required = false)
     private BigDecimal usd;
 
-    @JsonProperty("EUR")
+    @JsonProperty(value ="EUR", required = false)
     private BigDecimal eur;
 
-    @JsonProperty("UAH")
+    @JsonProperty(value ="UAH", required = false)
     private BigDecimal uah;
 
-    @JsonProperty("BTC")
+    @JsonProperty(value ="BTC", required = false)
     private BigDecimal btc;
+
+    @JsonProperty(value = "Message", required = false)
+    private String message;
 }
