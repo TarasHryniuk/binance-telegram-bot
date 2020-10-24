@@ -47,7 +47,8 @@ public class Bot extends TelegramLongPollingBot {
 
         CreateMessageService createMessageService = new CreateMessageService();
 
-        if (inputText.contains("/CRYPTO")) inputText = inputText.substring(8);
+        if (inputText.contains("/CRYPTO"))
+            inputText = inputText.split("\\s+")[1];
 
         SendMessage message = new SendMessage();
         message.setChatId(chatId);

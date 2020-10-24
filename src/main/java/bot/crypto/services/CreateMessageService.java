@@ -82,9 +82,9 @@ public class CreateMessageService {
 
     public boolean isValid(String message){
         if(message.length() > 15) return false;
-        if(message.contains("\n")) return false;
+        if(message.length() < 2) return false;
 
-        Pattern pattern = Pattern.compile("[а-яА-ЯїЇєЄъЪ~#@*+%{}<>\\[\\]|\"\\_^]");
+        Pattern pattern = Pattern.compile("[а-яА-ЯїЇєЄъЪ~#@*+%{}<>\\[\\]|\"\\_^\\s+\n]");
         Matcher matcher = pattern.matcher(message);
 
         return !matcher.find();
