@@ -37,7 +37,7 @@ public class HttpsClient {
         try {
 
             StringBuilder sb = new StringBuilder();
-            sb.append("https://min-api.cryptocompare.com/data/price?fsym=").append(curr).append("&tsyms=USD,EUR,UAH,BTC");
+            sb.append("https://min-api.cryptocompare.com/data/price?fsym=").append(curr).append("&tsyms=USD,EUR,UAH,BTC,XRP");
 
             HttpGet request = new HttpGet(sb.toString());
 

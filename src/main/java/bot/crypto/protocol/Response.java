@@ -17,11 +17,12 @@ public class Response {
     public Response() {
     }
 
-    public Response(BigDecimal usd, BigDecimal eur, BigDecimal uah, BigDecimal btc) {
+    public Response(BigDecimal usd, BigDecimal eur, BigDecimal uah, BigDecimal btc, BigDecimal xrp) {
         this.usd = usd;
         this.eur = eur;
         this.uah = uah;
         this.btc = btc;
+        this.xrp = xrp;
     }
 
     @JsonProperty(value ="USD")
@@ -35,6 +36,9 @@ public class Response {
 
     @JsonProperty(value ="BTC")
     private BigDecimal btc;
+
+    @JsonProperty(value ="XRP")
+    private BigDecimal xrp;
 
     @JsonProperty(value = "Message")
     private String message;
