@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
-            <version>LATEST</version>
+            <version>4.9.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
